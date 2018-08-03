@@ -11,13 +11,10 @@ def main():
             mmt[line.split()[0]] = float(line.split()[1])
 
     with open("datafiles/rosalind_prtm.txt") as f:
-        p = f.readline()
+        p = f.readline().strip()
 
-    mass = 0
-
-    for aa in p:
-        mass += mmt[aa]
-
+    mass = sum([mmt[aa] for aa in p])
+    
     print(round(mass,3))
 
 if __name__ == "__main__":
